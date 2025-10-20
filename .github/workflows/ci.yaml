@@ -25,6 +25,9 @@ jobs:
         with:
           cache: true
 
+      - name: Setup Lune Typedefs
+        run: lune setup
+
       - name: Install Pesde Dependencies
         run: pesde install
 

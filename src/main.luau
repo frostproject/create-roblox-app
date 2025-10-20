@@ -72,7 +72,7 @@ local function getProjectPath(): ()
 end
 
 local function getProjectType(): ()
-   local input = prompt("select", "What project are you building?", PROJECT_TYPES_FORMATTED :: { string })
+   local input = prompt("select", "What project are you building?", PROJECT_TYPES_FORMATTED)
    if not input then
       fatalError(errorCodes.emptyPrompt, "Project type is nil")
    else
@@ -88,7 +88,7 @@ local function getProjectType(): ()
 end
 
 local function getTemplateType(): ()
-   local input = prompt("select", "How would you like to start your new project?", TEMPLATE_TYPES_FORMATTED :: { string })
+   local input = prompt("select", "How would you like to start your new project?", TEMPLATE_TYPES_FORMATTED)
    if not input then
       fatalError(errorCodes.emptyPrompt, "Project template type is invalid: " .. `{input or "nil"}`)
    else
