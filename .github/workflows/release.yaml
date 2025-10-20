@@ -23,7 +23,7 @@ jobs:
       - name: Install Pesde
         uses: axiom-co/setup-pesde@v0.4.1
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PESDE_TOKEN }}
 
       - name: Setup Lune Typedefs
         run: lune setup

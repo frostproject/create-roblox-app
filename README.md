@@ -73,6 +73,8 @@ git push origin 1.2.3
 
 - It's safe and advised to regularly update [pesde.lock](pesde.lock). You may bump dependencies and commit those changes. Avoid editing this file manually — instead, use `pesde update` to keep it in sync.
 
+- To enable the GitHub workflow for automated deployment to the pesde registry (for libraries), you must add `PESDE_TOKEN` as a repository or organization secret. To obtain it, please use `pesde auth login` and then `pesde auth token`. More information [here](https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets).
+
 - The full template bundles a lot of Markdown files and GitHub specific files (e.g., [LICENSE.md](LICENSE), [SUPPORT.md](.github/SUPPORT.md), [SECURITY.md](.github/SECURITY.md), [CODEOWNERS](.github/CODEOWNERS), etc.) that contain project-specific text and references. You are responsible for reviewing and updating these files to reflect your own project's name, license, contacts, and details.
 
 - While not always enforced, it is recommended to follow the code style guide provided. As this is only a template, we can only suggest you what to use. The boilerplate code we have follows the official [Roblox Lua style guide](https://roblox.github.io/lua-style-guide/) and the [Lua Rocks style guide](https://github.com/luarocks/lua-style-guide). We use 3 spaces for indentation and a few other cool settings by default. All of that is up to your own preference and has no real meaning. You can configure them in the [stylua.toml](stylua.toml) file.
