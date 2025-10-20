@@ -22,6 +22,9 @@ sourcemap_generator = ".pesde/scripts_argon/sourcemap_generator.luau"
 [indices]
 default = "https://github.com/pesde-pkg/index"
 
+[wally_indices]
+default = "https://github.com/UpliftGames/wally-index"
+
 [dev_dependencies]
 scripts_argon = { name = "pesde/scripts_argon", version = "0.2.0", target = "lune" }
 argon = { name = "pesde/argon", version = "2.0.26", target = "lune" }

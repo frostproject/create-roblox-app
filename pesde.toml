@@ -23,6 +23,9 @@ bin = "src/main.luau"
 [indices]
 default = "https://github.com/pesde-pkg/index"
 
+[wally_indices]
+default = "https://github.com/UpliftGames/wally-index"
+
 [dev_dependencies]
 luau-lsp = { name = "pesde/luau_lsp", version = "1.54.0", target = "lune" }
 stylua = { name = "pesde/stylua", version = "2.3.0", target = "lune" }
