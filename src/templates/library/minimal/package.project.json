@@ -1,0 +1,6 @@
+{
+    "name": "{{PROJECT_NAME}}",
+    "tree": {
+        "$path": "src"
+    }
+}

@@ -1,0 +1,12 @@
+# Packages
+.pesde
+luau_packages
+lune_packages
+roblox_packages
+roblox_server_packages
+
+# Roblox Netcode
+netcode.luau
+netcode-client.luau
+netcode-server.luau
+netcode-types.luau

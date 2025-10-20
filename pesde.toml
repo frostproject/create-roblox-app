@@ -1,0 +1,22 @@
+name = "frostproject/create_roblox_app"
+description = "Set up a modern roblox app by running one command."
+version = "0.0.1"
+authors = ["iceeburr <iceeburr@gmail.com> (https://iceeburr.dev)"]
+repository = "https://github.com/frostproject/create-roblox-app"
+license = "MIT"
+includes = ["README.md", "pesde.toml", "src/**/*.luau", "LICENSE"]
+
+[engines]
+pesde = "0.7.1"
+lune = "0.10.4"
+
+[target]
+environment = "lune"
+bin = "src/main.luau"
+
+[indices]
+default = "https://github.com/pesde-pkg/index"
+
+[dev_dependencies]
+luau-lsp = { name = "pesde/luau_lsp", version = "1.54.0", target = "lune" }
+stylua = { name = "pesde/stylua", version = "2.3.0", target = "lune" }

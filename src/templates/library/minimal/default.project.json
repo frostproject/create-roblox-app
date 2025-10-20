@@ -1,0 +1,22 @@
+{
+  "name": "{{PROJECT_NAME}}",
+  "legacyScripts": false,
+  "tree": {
+    "$className": "DataModel",
+    "ReplicatedStorage": {
+      "$keepUnknowns": true,
+      "$path": "tests/client",
+      "{{PROJECT_NAME}}": {
+        "$className": "Folder",
+        "src": {
+          "$path": "src"
+        },
+        "roblox_packages": {
+          "$path": {
+            "optional": "roblox_packages"
+          }
+        }
+      }
+    }
+  }
+}

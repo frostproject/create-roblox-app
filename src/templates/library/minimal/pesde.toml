@@ -1,0 +1,30 @@
+name = "{{PROJECT_SCOPE_FORMATTED}}"
+description = "Set up a modern roblox library by running one command."
+version = "0.0.1"
+authors = ["{{LOCAL_USER}}"]
+repository = "https://github.com/{{PROJECT_SCOPE}}"
+license = "MIT"
+includes = ["README.md", "pesde.toml", "src/**/*.luau", "LICENSE"]
+
+[engines]
+pesde = "0.7.1"
+lune = "0.10.4"
+
+[target]
+environment = "roblox"
+lib = "src/main.luau"
+build_files = ["src"]
+
+[scripts]
+roblox_sync_config_generator = ".pesde/scripts_argon/roblox_sync_config_generator.luau"
+sourcemap_generator = ".pesde/scripts_argon/sourcemap_generator.luau"
+
+[indices]
+default = "https://github.com/pesde-pkg/index"
+
+[dev_dependencies]
+scripts_argon = { name = "pesde/scripts_argon", version = "0.2.0", target = "lune" }
+argon = { name = "pesde/argon", version = "2.0.26", target = "lune" }
+
+[dependencies]
+threadpool = { name = "frostproject/threadpool", version = "1.0.2" }

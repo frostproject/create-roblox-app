@@ -1,0 +1,81 @@
+# Lua Type Files
+globalTypes.d.lua
+
+# Sourcemap Files
+sourcemap.json
+
+# Packages
+Packages
+ServerPackages
+.pesde
+roblox_packages
+roblox_server_packages
+luau_packages
+lune_packages
+/node_modules
+/jspm_packages
+__pycache__/
+/vendor/
+
+# Roblox Netcode
+netcode.luau
+netcode-client.luau
+netcode-server.luau
+netcode-types.luau
+
+# Environmental Variables
+*.env*
+*.venv*
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+!.env.template
+
+# Compiled Lua sources
+luac.out
+
+# Lua Rocks Build Files
+*.rock
+
+# Production Builds
+/[Bb]uild
+/[Rr]elease
+
+# Executables
+*.exe
+*.out
+*.i*86
+*.x86_64
+*.hex
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Diagnostic Reports
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+coverage/
+*.lcov
+
+# TypeScript Cache
+*.tsbuildinfo
+
+# Output Of 'npm pack'
+*.tgz
+
+# MKDocs Documentation
+/site
+
+# Miscellaneous
+.DS_Store
+[Dd]esktop.ini
+!.gitkeep
+_bytecode.luau
+_test.luau

@@ -1,0 +1,39 @@
+name: Continuous Integration
+
+on:
+  push:
+    branches:
+      - "main"
+  pull_request:
+    branches:
+      - "main"
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}
+
+jobs:
+  analyze:
+    name: Analyze
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@v4
+
+      - name: Install Pesde
+        uses: axiom-co/setup-pesde@v0.4.1
+        with:
+          cache: true
+
+      - name: Install Pesde Dependencies
+        run: pesde install
+
+      - name: Curl Luau Types
+        shell: bash
+        run: curl -L "https://raw.githubusercontent.com/JohnnyMorganz/luau-lsp/main/scripts/globalTypes.d.lua" > "globalTypes.d.lua
+
+      - name: Analyze
+        run: luau-lsp analyze --definitions globalTypes.d.lua src
+
+      - name: Styling
+        run: stylua src --check --verify
