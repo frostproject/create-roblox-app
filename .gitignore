@@ -39,6 +39,9 @@ luac.out
 # Lua Rocks Build Files
 *.rock
 
+# Pesde Build Files
+package.tar.gz
+
 # Production Builds
 /[Bb]uild
 /[Rr]elease
