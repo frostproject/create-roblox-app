@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Just experimenting with pesde. Possibly fixes the error when trying to run the script.
+
 ## [0.0.1] - 2025-10-20
 
 ### Initial Release
