@@ -7,7 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.1] - 2025-10-20
+
 ### Initial Release
 
 - The project was created!
 - Only includes templates for libraries. Game and plugin support will be added in the future.
+
+[unreleased]: https://github.com/frostproject/create-roblox-app/compare/0.0.1...HEAD
+[0.0.1]: https://github.com/frostproject/create-roblox-app/compare/b9308c815f7601e2db40db0cb051dce698a508b8...0.0.1
