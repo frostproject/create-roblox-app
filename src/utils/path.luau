@@ -178,11 +178,11 @@ local function getTemplatePath(options: common.options): string
    local projectType = PROJECT_TYPES[options.projectType]
    local templateType = TEMPLATE_TYPES[options.templateType]
 
-   if not projectType or projectType == "Go Back" then
+   if projectType == "Go Back" then
       fatalError(errorCodes.invalidProjectType, "Invalid project type selected: " .. projectType)
    end
 
-   if not templateType or templateType == "Go Back" then
+   if templateType == "Go Back" then
       fatalError(errorCodes.invalidTemplateType, "Invalid template type selected: " .. templateType)
    end
 

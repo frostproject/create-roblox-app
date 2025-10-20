@@ -33,7 +33,7 @@ jobs:
         run: curl -L "https://raw.githubusercontent.com/JohnnyMorganz/luau-lsp/main/scripts/globalTypes.d.lua" > "globalTypes.d.lua"
 
       - name: Analyze
-        run: luau-lsp analyze --definitions globalTypes.d.lua src
+        run: luau-lsp analyze --definitions globalTypes.d.lua --ignore src/templates/** src
 
       - name: Styling
         run: stylua src --check --verify

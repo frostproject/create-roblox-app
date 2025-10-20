@@ -10,3 +10,6 @@ netcode.luau
 netcode-client.luau
 netcode-server.luau
 netcode-types.luau
+
+# Templates
+src/Templates

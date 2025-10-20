@@ -26,7 +26,7 @@ local exec = process.exec
 local PROJECT_TYPES_FORMATTED = common.PROJECT_TYPES_FORMATTED
 local TEMPLATE_TYPES_FORMATTED = common.TEMPLATE_TYPES_FORMATTED
 
-outWrite(color("black"), "Initializing script...", color("reset"))
+outWrite(color("black") .. "Initializing script..." .. color("reset"))
 
 if not _G.PESDE_ROOT then
    fatalError(errorCodes.missing_G, "PESDE_ROOT environment variable is not set", true)
@@ -53,7 +53,7 @@ local function getProjectPath(): ()
       end)
    else
       local targetPath = path.normalizePath(path.resolveTargetPath(input))
-      local isValid, message = path.validatePath(targetPath, false)
+      local isValid, message = path.validatePath(targetPath)
 
       if isValid == true then
          options.projectName = path.getBasename(targetPath)
@@ -72,7 +72,7 @@ local function getProjectPath(): ()
 end
 
 local function getProjectType(): ()
-   local input = prompt("select", "What project are you building?", PROJECT_TYPES_FORMATTED)
+   local input = prompt("select", "What project are you building?", PROJECT_TYPES_FORMATTED :: { string })
    if not input then
       fatalError(errorCodes.emptyPrompt, "Project type is nil")
    else
@@ -88,7 +88,7 @@ local function getProjectType(): ()
 end
 
 local function getTemplateType(): ()
-   local input = prompt("select", "How would you like to start your new project?", TEMPLATE_TYPES_FORMATTED)
+   local input = prompt("select", "How would you like to start your new project?", TEMPLATE_TYPES_FORMATTED :: { string })
    if not input then
       fatalError(errorCodes.emptyPrompt, "Project template type is invalid: " .. `{input or "nil"}`)
    else
@@ -126,7 +126,7 @@ if DEBUG then
    outWrite("\nCWD: " .. process.cwd)
    outWrite("\nENV: " .. format(process.env))
    outWrite("\nARGS: " .. format(common.ARGS))
-   outWrite("\n_G: ", format(_G))
+   outWrite("\n_G: " .. format(_G))
    outWrite("\nStarting in 10 seconds...")
    task.wait(10)
 end

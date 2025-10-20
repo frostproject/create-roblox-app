@@ -3,31 +3,48 @@ local stdio = require("@lune/stdio")
 
 local color = stdio.color
 
-local PROJECT_TYPES = {
+type projectTypeNumber = number
+type projectTypeString = "Game" | "Library" | "Plugin" | "Go Back"
+export type projectTypes = { [projectTypeNumber]: projectTypeString }
+
+type templateTypeNumber = number
+type templateTypeString = "Full (Recommended)" | "Minimal" | "Go Back"
+export type templateTypes = { [templateTypeNumber]: templateTypeString }
+
+local PROJECT_TYPES: { [projectTypeNumber]: string } = {
    [1] = "game",
    [2] = "library",
    [3] = "plugin",
 }
 
-local TEMPLATE_TYPES = {
+local TEMPLATE_TYPES: { [templateTypeNumber]: string } = {
    [1] = "full",
    [2] = "minimal",
 }
 
-local PROJECT_TYPES_FORMATTED = {
+local PROJECT_TYPES_FORMATTED: projectTypes = {
    [1] = "Game",
    [2] = "Library",
    [3] = "Plugin",
    [4] = "Go Back",
 }
 
-local TEMPLATE_TYPES_FORMATTED = {
+local TEMPLATE_TYPES_FORMATTED: templateTypes = {
    [1] = "Full (Recommended)",
    [2] = "Minimal",
    [3] = "Go Back",
 }
 
-local OPTIONS = {
+export type options = {
+   projectType: projectTypeNumber,
+   projectName: string,
+   path: string,
+   originalPath: string,
+   templateType: templateTypeNumber,
+   initializeGit: boolean,
+}
+
+local OPTIONS: options = {
    projectType = 0,
    projectName = "",
    path = "",
@@ -35,8 +52,6 @@ local OPTIONS = {
    templateType = 0,
    initializeGit = false,
 }
-
-export type options = typeof(OPTIONS)
 
 local ERROR_CODES = {
    ["fsWrite"] = 2,
