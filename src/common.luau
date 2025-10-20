@@ -67,6 +67,7 @@ local ERROR_CODES = {
    ["missing_G"] = 16,
    ["missingArgument"] = 17,
    ["missingEnv"] = 18,
+   ["unknownExtra"] = 19,
 }
 
 local DEBUG_MESSAGE = color("yellow") .. "\n\nDEBUG MODE:\n" .. color("reset")

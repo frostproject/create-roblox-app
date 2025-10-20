@@ -1,4 +1,4 @@
-{
+return [[{
   "name": "{{PROJECT_NAME}}",
   "legacyScripts": false,
   "tree": {
@@ -19,4 +19,4 @@
       }
     }
   }
-}
+}]]

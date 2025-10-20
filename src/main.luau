@@ -6,6 +6,7 @@ local task = require("@lune/task")
 local clear = require("@utils/clear")
 local common = require("./common")
 local fatalError = require("@utils/fatalError")
+local getExtra = require("@utils/getExtra")
 local path = require("@utils/path")
 
 local errorCodes = common.ERROR_CODES
@@ -21,8 +22,10 @@ local prompt = stdio.prompt
 local format = stdio.format
 local outWrite = stdio.write
 local readFile = fs.readFile
+local writeFile = fs.writeFile
 local copy = fs.copy
 local exec = process.exec
+local PROJECT_TYPES = common.PROJECT_TYPES
 local PROJECT_TYPES_FORMATTED = common.PROJECT_TYPES_FORMATTED
 local TEMPLATE_TYPES_FORMATTED = common.TEMPLATE_TYPES_FORMATTED
 
@@ -213,7 +216,7 @@ pesdeTomlFile = pesdeTomlFile:gsub("{{PROJECT_SCOPE}}", projectScope)
 pesdeTomlFile = pesdeTomlFile:gsub("{{LOCAL_USER}}", LOCAL_USER)
 
 ok, err = pcall(function(): any
-   fs.writeFile(pathToPesdeToml, pesdeTomlFile)
+   writeFile(pathToPesdeToml, pesdeTomlFile)
    return
 end)
 
@@ -225,6 +228,24 @@ if not ok then
 end
 
 outWrite("\n■ Updated pesde.toml")
+
+local pathToDefaultProject = options.path .. "/default.project.json"
+local defaultProjectJson: string =
+   getExtra(PROJECT_TYPES[options.projectType] .. "/default_project_json"):gsub("{{PROJECT_NAME}}", options.projectName)
+
+ok, err = pcall(function(): any
+   writeFile(pathToDefaultProject, defaultProjectJson)
+   return
+end)
+
+if not ok then
+   fatalError(
+      errorCodes.fsWrite,
+      "Failed writing default.project.json: " .. pathToDefaultProject .. `{err ~= nil and ("\n\n" .. stdio.format(err)) or ""}`
+   )
+end
+
+outWrite("\n■ Copied default.project.json")
 
 local EXEC_OPTIONS = {
    cwd = options.path,
@@ -268,7 +289,7 @@ LicenseFile = LicenseFile:gsub("{{YEAR}}", tostring(os.date("%Y")))
 LicenseFile = LicenseFile:gsub("{{LOCAL_USER}}", LOCAL_USER)
 
 ok, err = pcall(function(): any
-   fs.writeFile(pathToLicense, LicenseFile)
+   writeFile(pathToLicense, LicenseFile)
    return
 end)
 
@@ -301,7 +322,7 @@ ReadmeFile = ReadmeFile:gsub("{{PROJECT_NAME_FORMATTED}}", projectNameFormatted)
 ReadmeFile = ReadmeFile:gsub("{{PROJECT_SCOPE}}", projectScope)
 
 ok, err = pcall(function(): any
-   fs.writeFile(pathToReadme, ReadmeFile)
+   writeFile(pathToReadme, ReadmeFile)
    return
 end)
 
@@ -313,36 +334,6 @@ if not ok then
 end
 
 outWrite("\n■ Updated README.md")
-
-local pathToDefaultProject = options.path .. "/default.project.json"
-local DefaultProjectFile: string
-ok, err = pcall(function(): any
-   DefaultProjectFile = readFile(pathToDefaultProject)
-   return
-end)
-
-if not ok then
-   fatalError(
-      errorCodes.fsRead,
-      "Failed reading default.project.json: " .. pathToDefaultProject .. `{err ~= nil and ("\n\n" .. stdio.format(err)) or ""}`
-   )
-end
-
-DefaultProjectFile = DefaultProjectFile:gsub("{{PROJECT_NAME}}", options.projectName)
-
-ok, err = pcall(function(): any
-   fs.writeFile(pathToDefaultProject, DefaultProjectFile)
-   return
-end)
-
-if not ok then
-   fatalError(
-      errorCodes.fsWrite,
-      "Failed writing default.project.json: " .. pathToDefaultProject .. `{err ~= nil and ("\n\n" .. stdio.format(err)) or ""}`
-   )
-end
-
-outWrite("\n■ Updated default.project.json")
 
 if options.projectType == 2 then
    local pathToPackageProject = options.path .. "/package.project.json"
@@ -364,7 +355,7 @@ if options.projectType == 2 then
    PackageProjectFile = PackageProjectFile:gsub("{{PROJECT_NAME}}", options.projectName)
 
    ok, err = pcall(function(): any
-      fs.writeFile(pathToPackageProject, PackageProjectFile)
+      writeFile(pathToPackageProject, PackageProjectFile)
       return
    end)
 
