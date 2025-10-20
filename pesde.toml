@@ -4,7 +4,13 @@ version = "0.0.0"
 authors = ["iceeburr <iceeburr@gmail.com> (https://iceeburr.dev)"]
 repository = "https://github.com/frostproject/create-roblox-app"
 license = "MIT"
-includes = ["README.md", "pesde.toml", "src/**/*.luau", "LICENSE"]
+includes = [
+    "README.md",
+    "pesde.toml",
+    "src/**/*.luau",
+    "templates/**/*.luau",
+    "LICENSE",
+]
 
 [engines]
 pesde = "0.7.1"
