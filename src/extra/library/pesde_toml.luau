@@ -1,10 +1,10 @@
-name = "{{PROJECT_SCOPE_FORMATTED}}"
+return [[name = "{{PROJECT_SCOPE_FORMATTED}}"
 description = "Set up a modern roblox library by running one command."
 version = "0.0.0"
 authors = ["{{LOCAL_USER}}"]
 repository = "https://github.com/{{PROJECT_SCOPE}}"
 license = "MIT"
-includes = ["README.md", "pesde.toml", "src/**/*.luau", "LICENSE"]
+includes = ["README.md", "pesde.toml", "src/**/*.luau", "LICENSE", ".luaurc"]
 
 [engines]
 pesde = "0.7.1"
@@ -31,3 +31,4 @@ argon = { name = "pesde/argon", version = "2.0.26", target = "lune" }
 
 [dependencies]
 threadpool = { name = "frostproject/threadpool", version = "1.0.2" }
+]]

@@ -192,24 +192,13 @@ end
 
 outWrite("\n■ Template copied")
 
-local pathToPesdeToml = options.path .. "/pesde.toml"
-local pesdeTomlFile: string
-ok, err = pcall(function(): any
-   pesdeTomlFile = readFile(pathToPesdeToml)
-   return
-end)
-
-if not ok then
-   fatalError(
-      errorCodes.fsRead,
-      "Failed reading pesde.toml: " .. pathToPesdeToml .. `{err ~= nil and ("\n\n" .. stdio.format(err)) or ""}`
-   )
-end
-
 local LOCAL_USER_FORMATTED = LOCAL_USER:gsub("%-", "_")
 local projectNameFormatted = options.projectName:gsub("%-", "_")
 local projectScope = LOCAL_USER .. "/" .. options.projectName
 local projectScopeFormatted = LOCAL_USER_FORMATTED .. "/" .. projectNameFormatted
+
+local pathToPesdeToml = options.path .. "/pesde.toml"
+local pesdeTomlFile: string = getExtra(PROJECT_TYPES[options.projectType] .. "/pesde_toml")
 
 pesdeTomlFile = pesdeTomlFile:gsub("{{PROJECT_SCOPE_FORMATTED}}", projectScopeFormatted)
 pesdeTomlFile = pesdeTomlFile:gsub("{{PROJECT_SCOPE}}", projectScope)
@@ -227,7 +216,7 @@ if not ok then
    )
 end
 
-outWrite("\n■ Updated pesde.toml")
+outWrite("\n■ Copied pesde.toml")
 
 local pathToDefaultProject = options.path .. "/default.project.json"
 local defaultProjectJson: string =
