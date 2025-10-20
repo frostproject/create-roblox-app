@@ -186,9 +186,8 @@ local function getTemplatePath(options: common.options): string
       fatalError(errorCodes.invalidTemplateType, "Invalid template type selected: " .. templateType)
    end
 
-   local templatePath = normalizePath(
-      join(normalizePath(stripLongPathPrefix(_G.PESDE_ROOT)), "src/templates/" .. projectType .. "/" .. templateType)
-   )
+   local templatePath =
+      normalizePath(join(normalizePath(stripLongPathPrefix(_G.PESDE_ROOT)), "templates/" .. projectType .. "/" .. templateType))
 
    local result: boolean
    local ok, err = pcall(function(): any
