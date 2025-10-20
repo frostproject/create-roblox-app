@@ -10,6 +10,7 @@ includes = [
     "src/**/*.luau",
     "templates/**",
     "LICENSE",
+    ".luaurc",
 ]
 
 [engines]
