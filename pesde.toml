@@ -8,7 +8,7 @@ includes = [
     "README.md",
     "pesde.toml",
     "src/**/*.luau",
-    "templates/**/*.luau",
+    "templates/**",
     "LICENSE",
 ]
 
