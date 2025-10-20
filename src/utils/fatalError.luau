@@ -17,7 +17,7 @@ local function fatalError(code: number?, message: string?, bypassDebugMode: bool
 
    ewrite(style("reset") .. color("red") .. style("bold"))
    ewrite(
-      `\n{"âŒ An unexpected error has occurred. If you believe this is a bug, please report it on our GitHub repository so we can investigate. (Error Code: " .. codeDisplay .. ")"}{not isDebug and style(
+      `\n{"   An unexpected error has occurred. If you believe this is a bug, please report it on our GitHub repository so we can investigate. (Error Code: " .. codeDisplay .. ")"}{not isDebug and style(
          "reset"
       ) .. color("yellow") .. "\n   You can enable debug mode by passing the --debug flag." or ""}`
    )

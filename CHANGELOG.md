@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Weird whitespace in fatal error message
+
 ## [0.0.3] - 2025-10-20
 
 - Added the default project name used in the script to .gitignore
