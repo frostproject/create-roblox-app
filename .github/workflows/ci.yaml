@@ -30,7 +30,7 @@ jobs:
 
       - name: Curl Luau Types
         shell: bash
-        run: curl -L "https://raw.githubusercontent.com/JohnnyMorganz/luau-lsp/main/scripts/globalTypes.d.lua" > "globalTypes.d.lua
+        run: curl -L "https://raw.githubusercontent.com/JohnnyMorganz/luau-lsp/main/scripts/globalTypes.d.lua" > "globalTypes.d.lua"
 
       - name: Analyze
         run: luau-lsp analyze --definitions globalTypes.d.lua src
