@@ -7,8 +7,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.0.2] - 2025-10-20
-
 - Just experimenting with pesde. Possibly fixes the error when trying to run the script.
 
 ## [0.0.1] - 2025-10-20
@@ -18,6 +16,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - The project was created!
 - Only includes templates for libraries. Game and plugin support will be added in the future.
 
-[unreleased]: https://github.com/frostproject/create-roblox-app/compare/0.0.2...HEAD
-[0.0.2]: https://github.com/frostproject/create-roblox-app/compare/0.0.1...0.0.2
+[unreleased]: https://github.com/frostproject/create-roblox-app/compare/0.0.1...HEAD
 [0.0.1]: https://github.com/frostproject/create-roblox-app/compare/b9308c815f7601e2db40db0cb051dce698a508b8...0.0.1
