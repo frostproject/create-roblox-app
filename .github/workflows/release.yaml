@@ -28,6 +28,9 @@ jobs:
       - name: Setup Lune Typedefs
         run: lune setup
 
+      - name: Update Pesde Lock
+        run: pesde update --no-install
+
       - name: Install Pesde Dependencies
         run: pesde install --locked
 
