@@ -1,6 +1,6 @@
 name = "frostproject/create_roblox_app"
 description = "Set up a modern roblox app by running one command."
-version = "0.0.1"
+version = "0.0.0"
 authors = ["iceeburr <iceeburr@gmail.com> (https://iceeburr.dev)"]
 repository = "https://github.com/frostproject/create-roblox-app"
 license = "MIT"

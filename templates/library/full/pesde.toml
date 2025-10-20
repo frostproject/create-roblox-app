@@ -1,6 +1,6 @@
 name = "{{PROJECT_SCOPE_FORMATTED}}"
 description = "Set up a modern roblox library by running one command."
-version = "0.0.1"
+version = "0.0.0"
 authors = ["{{LOCAL_USER}}"]
 repository = "https://github.com/{{PROJECT_SCOPE}}"
 license = "MIT"

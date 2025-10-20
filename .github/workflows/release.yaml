@@ -32,7 +32,8 @@ jobs:
         run: pesde install --locked
 
       - name: Update Changelog
-        uses: thomaseizinger/keep-a-changelog-new-release@v3
+        id: changelog
+        uses: baynezy/ChangeLogger.Action@1.1.1.13
         with:
           tag: ${{ github.ref_name }}
 
@@ -49,12 +50,6 @@ jobs:
           git tag -fa ${{ github.ref_name }} -m "chore: release v${{ github.ref_name }}"
           git push -f --tags
 
-      - name: Read Changelog
-        id: read-changes
-        uses: mindsers/changelog-reader-action@v2
-        with:
-          version: ${{ github.ref_name }}
-
       - name: Get previous Tag
         id: previous-tag
         uses: WyriHaximus/github-action-get-previous-tag@v1
@@ -66,7 +61,7 @@ jobs:
           release_name: ${{ github.ref_name }}
           body: |
             ## Changelog
-            ${{ steps.read-changes.outputs.changes }}
+            ${{ steps.changelog.outputs.release-notes }}
           prerelease: ${{ contains(github.ref_name, 'pre') }}
           notes_start_tag: ${{ steps.previous-tag.outputs.tag }}
           generate_release_notes: true
