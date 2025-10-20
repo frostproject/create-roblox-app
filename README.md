@@ -25,11 +25,11 @@ pesde x frostproject/create_roblox_app
 
 ## Philosophy
 
-- **One Command**: Just run a single command, and you’ll get a ready-to-go Roblox project with a cohesive curated setup. Choose between a "Full" or "Minimal" template depending on your needs.
+- **One Command**: Just run a single command, and you'll get a ready-to-go Roblox project with a cohesive curated setup. Choose between a "Full" or "Minimal" template depending on your needs.
 - **No Configuration Required**: You don't need to configure anything. A solid configuration for both development and production builds is included out of the box so you can focus on writing code.
-- **No "Lock-In"**: You’re free to remove any pre-installed tools and customize the setup however you like.
+- **No "Lock-In"**: You're free to remove any pre-installed tools and customize the setup however you like.
 
-## What’s Included?
+## What's Included?
 
 Your environment will have everything you need to build a modern Roblox library, game or plugin:
 
@@ -40,7 +40,7 @@ Your environment will have everything you need to build a modern Roblox library,
 When creating a new project, you can choose between two starting points:
 
 - **Full Template**  
-  Includes everything from the minimal template **plus** extra automation. You’ll get GitHub workflows for CI/CD, helpful scripts to streamline development, and a more complete setup for teams.
+  Includes everything from the minimal template **plus** extra automation. You'll get GitHub workflows for CI/CD, helpful scripts to streamline development, and a more complete setup for teams.
 
 - **Minimal Template**  
   A lightweight starting point that gives you just the essentials: project structure and basic file organization. Perfect if you prefer to keep things simple or want to build your own tooling from scratch.
@@ -52,7 +52,7 @@ When creating a new project, you can choose between two starting points:
 
 1. Make your changes, implement and commit them as usual.
 
-2. Update the [CHANGELOG.md](CHANGELOG.md). Follow the [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) format. It’s simple and helps consumers understand what changed between versions.
+2. Update the [CHANGELOG.md](CHANGELOG.md). Follow the [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) format. It's simple and helps consumers understand what changed between versions.
 
 3. Optionally, upgrade your dependencies and run `pesde update` to refresh the [pesde.lock](pesde.lock) file.
 
@@ -65,13 +65,13 @@ git tag -a 1.2.3 -m "chore: release v1.2.3"
 git push origin 1.2.3
 ```
 
-🔥 You’re done! A new release will be created and published automatically by the [Deployment](.github/workflows/ci.yaml) workflow.
+🔥 You're done! A new release will be created and published automatically by the [Deployment](.github/workflows/ci.yaml) workflow.
 
 ## Important Notes
 
-- Never manually edit [pesde.toml](pesde.toml)’s version field. This is handled and automatically bumped by the workflow. Manually changing it can break the automated deployment process. Please, don't put a "v" in the tag name or any extra characters, for example - `v1.2.3`. This might break the workflow as it must follow [semantic versioning](https://semver.org). You can put it in the commit message, though.
+- Never manually edit [pesde.toml](pesde.toml)'s version field. This is handled and automatically bumped by the workflow. Manually changing it can break the automated deployment process. Please, don't put a "v" in the tag name or any extra characters, for example - `v1.2.3`. This might break the workflow as it must follow [semantic versioning](https://semver.org). You can put it in the commit message, though.
 
-- It’s safe and advised to regularly update [pesde.lock](pesde.lock). You may bump dependencies and commit those changes. Avoid editing this file manually — instead, use `pesde update` to keep it in sync.
+- It's safe and advised to regularly update [pesde.lock](pesde.lock). You may bump dependencies and commit those changes. Avoid editing this file manually — instead, use `pesde update` to keep it in sync.
 
 - The full template bundles a lot of Markdown files and GitHub specific files (e.g., [LICENSE.md](LICENSE), [SUPPORT.md](.github/SUPPORT.md), [SECURITY.md](.github/SECURITY.md), [CODEOWNERS](.github/CODEOWNERS), etc.) that contain project-specific text and references. You are responsible for reviewing and updating these files to reflect your own project's name, license, contacts, and details.
 
@@ -82,16 +82,22 @@ git push origin 1.2.3
 Here are some of the upcoming features and improvements planned for **Create Roblox App**:
 
 - [ ] Add support for CLI arguments (e.g. specify project path/name: `pesde x frostproject/create_roblox_app my-app`)
-- [ ] Improve and refactor the script’s code for better readability
+- [ ] Improve and refactor the script's code for better readability
 - [ ] Implement Roblox game template support
 - [ ] Implement Roblox Studio plugin template support
 - [ ] Add a Lune scripts folder to make Argon sync easier
 - [ ] Implement darklua processing for `require` by string and aliases
 - [ ] Improve README with clearer guidance and tutorials
-- [ ] Expand the "Maintainer’s Cookbook" guide to showcase best practices for managing projects in larger dev teams/environments
+- [ ] Expand the "Maintainer's Cookbook" guide to showcase best practices for managing projects in larger dev teams/environments
 
 ## Contributing
 
 Please read the [CONTRIBUTING.md](.github/CONTRIBUTING.md) guide if you want to add improvements to the CLI tool itself or any templates included inside. You can also fork it for personal use.
+
+If you'd like to see more detailed output while the script runs, you can enable debug mode by passing the `--debug` flag. This provides extra verbosity that can help with troubleshooting or understanding what's happening under the hood:
+
+```sh
+pesde x frostproject/create_roblox_app -- --debug
+```
 
 [⬆️ Back to the top](#create-roblox-app)
