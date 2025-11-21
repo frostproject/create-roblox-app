@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Project
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Install Pesde
         uses: axiom-co/setup-pesde@v0.4.1
