@@ -41,7 +41,7 @@ jobs:
           tag: ${{ github.ref_name }}
 
       - name: Commit and Push
-        uses: EndBug/add-and-commit@v9
+        uses: EndBug/add-and-commit@v11
         if: ${{ github.ref_name != steps.version-bump.outputs.old_version }}
         with:
           message: "chore: release v${{ github.ref_name }}"
